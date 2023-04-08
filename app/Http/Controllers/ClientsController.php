@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ClientsController extends Controller
 {
@@ -40,6 +41,16 @@ class ClientsController extends Controller
             ->orWhere('full_arabic_name', 'LIKE', '%' . $request->search . '%')->paginate();
 
         return view('index', ['clients' => $clients]);
+    }
+
+
+    // Get the country weather using guzzlehttp
+    public function getWeather()
+    {
+        $response = Http::get('http://api.weatherapi.com/v1/current.json?key=54a624731e7a487b9f7105124220307&q=London&aqi=no');
+        $weather = $response->json();
+        return $weather['current']['temp_c'];
+
     }
 
 }
