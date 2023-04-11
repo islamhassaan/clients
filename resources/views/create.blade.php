@@ -47,7 +47,7 @@
 
             <label for="country">Country:</label>
             <select class="form-control ch" name="country" id="country">
-                <option value="EGY">Egypt</option>
+                <option value="Egypt">Egypt</option>
                 <option value="USA">USA</option>
                 <option value="UK">UK</option>
                 <option value="Canada">Canada</option>
