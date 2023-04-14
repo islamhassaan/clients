@@ -30,6 +30,8 @@
                 <th>Email</th>
                 <th>Mobile</th>
                 <th>Country Code</th>
+                <th>Country</th>
+                <th>Country Temp</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +43,8 @@
                     <td>{{ $client->email }}</td>
                     <td>{{ $client->mobile }}</td>
                     <td>{{ $client->country_code }}</td>
+                    <td>{{ $client->country }}</td>
+                    <td>{{ $client->temp }} &#8451; </td>
                 </tr>
             @endforeach
         </tbody>

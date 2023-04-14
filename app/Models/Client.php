@@ -16,6 +16,7 @@ class Client extends Model
         'password',
         'email',
         'mobile',
-        'country_code'
+        'country_code',
+        'country'
     ];
 }

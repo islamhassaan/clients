@@ -14,6 +14,10 @@ class ClientsController extends Controller
     {
         $clients = Client::orderBy('full_english_name', 'asc')->paginate(5);
 
+        foreach ($clients  as $client) {
+            $client->setAttribute('temp',$this->getWeather($client->country));
+        }
+
         return view('index', ['clients' => $clients]);
     }
 
@@ -50,9 +54,8 @@ class ClientsController extends Controller
     {
         $response = Http::get("http://api.weatherapi.com/v1/current.json?key=54a624731e7a487b9f7105124220307&q=$country&aqi=no");
         $weather = $response->json();
-        echo "The temp of your country is " . $weather['current']['temp_c'];
 
-
+        return $weather['current']['temp_c'];
     }
 
 }

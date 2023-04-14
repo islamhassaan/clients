@@ -24,6 +24,7 @@ class ClientFactory extends Factory
             'password' => fake()->password(),
             'mobile' => fake()->phoneNumber(),
             'country_code' => fake()->countryCode(),
+            'country' => fake()->country(),
 
         ];
     }
