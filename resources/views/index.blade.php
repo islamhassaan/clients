@@ -45,24 +45,38 @@
                     <td>{{ $client->country_code }}</td>
                     <td>{{ $client->country }}</td>
                     <td>{{ $client->temp }} &#8451; </td>
+                    <td><a class="btn btn-primary"
+                            href="{{ route('clients.edit', ['client' => $client->id]) }}">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
     {{-- Pagination  --}}
-    <nav aria-label="Page navigation example" class="d-flex">
-        {!! $clients->links() !!}
-    </nav>
+    <div class="container">
+        <div class="col-md-12 text-center">
+            <nav aria-label="Page navigation example">
+                {!! $clients->links() !!}
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="col-md-12 text-center">
+            <a class="btn btn-primary  mt-2" href="{{ route('clients.create') }}">Add Client</a>
+            <a class="btn btn-primary  mt-2" href="{{ route('clients.index') }}">All Clients</a>
+        </div>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous">
-    </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+            integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+            integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

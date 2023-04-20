@@ -14,8 +14,8 @@ class ClientsController extends Controller
     {
         $clients = Client::orderBy('full_english_name', 'asc')->paginate(5);
 
-        foreach ($clients  as $client) {
-            $client->setAttribute('temp',$this->getWeather($client->country));
+        foreach ($clients as $client) {
+            $client->setAttribute('temp', $this->getWeather($client->country));
         }
 
         return view('index', ['clients' => $clients]);
@@ -35,6 +35,20 @@ class ClientsController extends Controller
         $client = new Client($request->all());
         $client->save();
         return redirect()->route('clients.index');
+    }
+
+    // Edit a client
+    public function update(Request $request, Client $client)
+    {
+
+        $client->update($request->all());
+
+        return redirect()->route('clients.index');
+    }
+
+    public function edit(Client $client)
+    {
+        return view('edit', ['client' => $client]);
     }
 
 
